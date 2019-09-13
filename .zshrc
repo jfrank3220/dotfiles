@@ -1,3 +1,8 @@
+# Add Hombrew completions https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/jordan.frank/.oh-my-zsh
 # Set name of the theme to load.

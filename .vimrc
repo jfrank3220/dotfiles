@@ -13,9 +13,9 @@ set expandtab         " Always indent using spaces
 ""
 set rtp+=~/.vim/bundle/Vundle.vim "set runtime path
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
 Plugin 'L9'
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'bronson/vim-trailing-whitespace'
@@ -23,6 +23,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'ervandew/supertab'
 Plugin 'garbas/vim-snipmate'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
@@ -30,6 +31,7 @@ Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'python-mode/python-mode'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
@@ -94,6 +96,20 @@ let g:ale_linters = {
 \   'ruby': ['rubocop'],
 \   'scss': ['stylelint']
 \}
+let g:ale_python_auto_pipenv = 1
+
+""
+"" Python
+""
+let g:pymode_python = 'python3'
+let g:pymode_syntax_all = 0
+let g:pymode_syntax_print_as_function = 1
+let g:pymode_syntax_string_format = 0
+let g:pymode_syntax_string_formatting = 0
+let g:pymode_syntax_string_templates = 0
+let g:pymode_indent = 0
+let g:python_pep8_indent_hang_closing = 1
+let g:pymode_options_colorcolumn = 0
 
 ""
 "" Fugitive mappings
