@@ -76,10 +76,13 @@ set smartcase                     " ... unless they contain at least one capital
 "" Fzf mappings
 ""
 set rtp+=/usr/local/opt/fzf
-nnoremap <silent> <C-p> :FZF<cr>
-nnoremap <silent> <Leader>p :FZF<cr>
-inoremap <silent> <C-p> <ESC>:FZF<cr>
-inoremap <silent> <Leader>p <ESC>:FZF<cr>
+nnoremap <silent> <C-p> :GFiles<cr>
+nnoremap <silent> <Leader>p :GFiles<cr>
+inoremap <silent> <C-p> <ESC>:GFiles<cr>
+inoremap <silent> <Leader>p <ESC>:GFiles<cr>
+command! -bang -nargs=? -complete=dir GFiles
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 
 ""
 "" Ale settings
