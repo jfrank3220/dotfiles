@@ -4,7 +4,7 @@ if type brew &>/dev/null; then
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jordan.frank/.oh-my-zsh
+export ZSH=/Users/`whoami`/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -103,7 +103,7 @@ export FZF_DEFAULT_COMMAND="ag -g ''"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/jordan.frank/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+HEROKU_AC_ZSH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
 
 # setup rbenv
 eval "$(rbenv init -)"
