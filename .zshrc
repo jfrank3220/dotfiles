@@ -103,7 +103,7 @@ export FZF_DEFAULT_COMMAND="ag -g ''"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
+HEROKU_AC_ZSH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
 
 # setup rbenv
 eval "$(rbenv init -)"
