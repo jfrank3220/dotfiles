@@ -66,8 +66,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # User configuration
 source $ZSH/oh-my-zsh.sh
 
-. ~/workspace/deploy/local.deploy
-
 # Tmuxifier configs
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
