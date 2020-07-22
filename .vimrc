@@ -18,6 +18,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'chrisbra/csv.vim'
 Plugin 'christoomey/vim-system-copy'
@@ -124,7 +125,6 @@ map <Leader>gd :Gdiff<CR>
 ""
 "" Cursor display
 ""
-
 if $TERM_PROGRAM =~ "iTerm"
   if exists("$TMUX")
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -158,10 +158,14 @@ nnoremap <Leader>c :let @+=expand('%:p')<CR>
 ""
 "" Airline
 ""
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#ale#enabled = 1
 let g:airline_section_b = '%{@%}'
 let g:airline_section_c = airline#section#create(['branch'])
 let g:airline#extensions#ale#enabled = 1
+let g:airline_theme = 'bubblegum'
 
 ""
 "" Color
