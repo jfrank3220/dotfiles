@@ -41,7 +41,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
+Plugin 'heavenshell/vim-jsdoc'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -89,7 +90,7 @@ command! -bang -nargs=? -complete=dir GFiles
 ""
 let g:ale_set_highlights = 1
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier'],
 \   'ruby': ['rubocop']
 \}
 let g:ale_fix_on_save = 0
@@ -241,4 +242,12 @@ map <Leader>/ <plug>NERDCommenterToggle<CR>
 " Default mapping, <leader>n
 map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
+" Open NERDTree if directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
+" Ignore files
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
