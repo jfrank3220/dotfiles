@@ -105,3 +105,10 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/zsh_
 
 # setup rbenv
 eval "$(rbenv init -)"
+
+# source local config
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+else
+    print "404: ~/.zshrc.local not found."
+fi
