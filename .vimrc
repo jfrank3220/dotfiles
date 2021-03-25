@@ -14,6 +14,7 @@ set expandtab         " Always indent using spaces
 set rtp+=~/.vim/bundle/Vundle.vim "set runtime path
 call vundle#begin()
 Plugin 'L9'
+Plugin 'k0kubun/vim-open-github'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'airblade/vim-gitgutter'
@@ -67,7 +68,6 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 ""
 "" Searching
 ""
-
 set hlsearch                      " highlight matches
 set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
@@ -83,6 +83,8 @@ inoremap <silent> <C-p> <ESC>:GFiles<cr>
 inoremap <silent> <Leader>p <ESC>:GFiles<cr>
 command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir Ag
+  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
 ""
@@ -98,9 +100,8 @@ let g:ale_linters = {
 \   'html': ['htmlhint'],
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],
-\   'scss': ['stylelint']
+\   'scss': ['stylelint'],
 \}
-let g:ale_python_auto_pipenv = 1
 
 ""
 "" Python

@@ -73,9 +73,6 @@ eval "$(tmuxifier init -)"
 # VIMRC
 export MYVIMRC="$HOME/.vimrc"
 
-# Add postgres to path
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -96,6 +93,7 @@ export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias be="bundle exec"
+alias rake='noglob rake'
 
 export FZF_DEFAULT_COMMAND="ag -g ''"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -105,6 +103,14 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/zsh_
 
 # setup rbenv
 eval "$(rbenv init -)"
+
+# setup pyenv
+eval "$(pyenv init -)"
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+
+# setup nodenv
+eval "$(nodenv init -)"
 
 # source local config
 if [ -f ~/.zshrc.local ]; then
