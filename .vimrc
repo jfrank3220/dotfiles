@@ -13,20 +13,22 @@ set expandtab         " Always indent using spaces
 ""
 set rtp+=~/.vim/bundle/Vundle.vim "set runtime path
 call vundle#begin()
+Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'L9'
-Plugin 'k0kubun/vim-open-github'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'chrisbra/csv.vim'
 Plugin 'christoomey/vim-system-copy'
+Plugin 'dense-analysis/ale'
 Plugin 'ervandew/supertab'
 Plugin 'garbas/vim-snipmate'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'heavenshell/vim-jsdoc'
 Plugin 'junegunn/fzf.vim'
+Plugin 'k0kubun/vim-open-github'
 Plugin 'mattn/emmet-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
@@ -42,8 +44,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'dense-analysis/ale'
-Plugin 'heavenshell/vim-jsdoc'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -88,6 +89,12 @@ command! -bang -nargs=? -complete=dir Ag
 
 
 ""
+"" SnipMate
+""
+let g:snipMate = { 'snippet_version' : 1 }
+
+
+""
 "" Ale settings
 ""
 let g:ale_set_highlights = 1
@@ -119,22 +126,21 @@ let g:pymode_options_colorcolumn = 0
 ""
 "" Fugitive mappings
 ""
-map <Leader>gb :Gblame<Cr>
-map <Leader>gs :Gstatus<CR>
+map <Leader>gb :Git blame<Cr>
+map <Leader>gs :Git<CR>
 map <Leader>gd :Gdiff<CR>
 
 ""
 "" Cursor display
 ""
 if $TERM_PROGRAM =~ "iTerm"
-  if exists("$TMUX")
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+elseif $TERM_PROGRAM =~ "tmux"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\ " " Vertical bar in insert mode
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" " Block in normal mode
 endif
+
 
 ""
 "" RSpec.vim mappings
@@ -230,6 +236,11 @@ map <Up> gk
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
+
+""
+"" Markdown Preview
+""
+let vim_markdown_preview_hotkey='<C-m>'
 
 ""
 "" NERDCommenter

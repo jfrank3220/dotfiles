@@ -102,7 +102,7 @@ export FZF_DEFAULT_COMMAND="ag -g ''"
 HEROKU_AC_ZSH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH
 
 # setup rbenv
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 
 # setup pyenv
 eval "$(pyenv init -)"
@@ -111,6 +111,9 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
 # setup nodenv
 eval "$(nodenv init -)"
+
+# setup jenv
+eval "$(jenv init -)"
 
 # source local config
 if [ -f ~/.zshrc.local ]; then
