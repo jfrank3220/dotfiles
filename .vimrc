@@ -11,7 +11,7 @@ set expandtab         " Always indent using spaces
 ""
 "" Vundle and Plugins
 ""
-set rtp+=~/.vim/bundle/Vundle.vim "set runtime path
+set rtp+=~/.config/nvim/pack/user/start/Vundle.vim "set runtime path
 call vundle#begin()
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'L9'

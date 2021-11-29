@@ -1,0 +1,35 @@
+[alias]
+	co = checkout
+	cp = cherry-pick
+	clean-merged = "!git branch --merged | grep -v \\* | xargs git branch -D "
+	clean-branches = "!git branch | grep -v \\* | xargs git branch -D "
+	a = add
+	ad = add
+	diff-branch = !git diff $(git merge-base --fork-point master)
+	com = commit
+	aa = add -A
+	staged = diff --staged
+[push]
+	default = current
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = false
+	editor = nvim
+[github]
+	user = jfrank3220
+[format]
+  # the %x08's are delete characters
+	pretty = format:%C(yellow)%h %Creset— %C(cyan)%ai%x08%x08%x08%x08%x08%x08%x08%x08%x08 %Creset— %C(red)%<(15)%an %Creset%<(85,trunc)%s
+[rebase]
+	autosquash = true
+[diff]
+	colorMoved = zebra
+[fetch]
+	prune = true
+[user]
+	email = jfrank3220@gmail.com
+	name = jordan frank
+[include]
+  path = ~/.gitconfig__local
+[pull]
+	rebase = true

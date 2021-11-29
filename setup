@@ -1,0 +1,51 @@
+#! /bin/bash
+
+source ~/.config/dotfiles/_util.bash
+
+setup_git() {
+  [[ ! -f ~/.gitconfig ]] && ln -sfv ~/.config/dotfiles/.gitconfig ~/
+  [[ ! -f ~/.gitignore_global ]] && ln -sfv ~/.config/dotfiles/.gitignore_global ~/
+}
+
+setup_dependencies() {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  brew bundle
+}
+
+setup_fzf() {
+  /usr/local/opt/fzf/install
+  [[ ! -f ~/.fzf.zsh ]] && ln -sf ~/.config/dotfiles/.fzf.zsh ~/
+}
+
+setup_vim() {
+  [[ ! -d ~/.config/nvim ]] && ln -sfv ~/.config/dotfiles/nvim ~/.config/
+  [[ ! -f ~/.vimrc ]] && ln -sfv ~/.config/dotfiles/.vimrc ~/
+}
+
+setup_zsh() {
+  ln -sfv ~/.config/dotfiles/.zshrc ~/
+  ln -sfv ~/.config/dotfiles/starship.toml ~/.config/
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
+setup_gpg() {
+  echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+}
+
+setup_psql() {
+  [[ ! -f ~/.psqlrc ]] && ln -sfv ~/.config/dotfiles/.psqlrc ~/
+}
+
+setup_tmux() {
+  git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+  [[ ! -f ~/.tmux.conf ]] && ln -sfv ~/.config/dotfiles/.tmux.conf ~/
+}
+
+setup_git
+setup_dependencies
+setup_fzf
+setup_vim
+setup_zsh
+setup_gpg
+setup_psql
+setup_tmux
